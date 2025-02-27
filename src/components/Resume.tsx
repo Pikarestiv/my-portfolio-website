@@ -65,13 +65,13 @@ const SkillCategory: FC<{ title: string; skills: string[] }> = ({
   </div>
 );
 
-const SkillItem: FC<{ skill: string }> = ({ skill }) => (
-  <li className="skills-item" style={{ color: "hsl(0, 0%, 84%)" }}>
-    <div className="title-wrapper">
-      <h5 className="h5">{skill}</h5>
-    </div>
-  </li>
-);
+// const SkillItem: FC<{ skill: string }> = ({ skill }) => (
+//   <li className="skills-item" style={{ color: "hsl(0, 0%, 84%)" }}>
+//     <div className="title-wrapper">
+//       <h5 className="h5">{skill}</h5>
+//     </div>
+//   </li>
+// );
 
 // const SkillsSection: FC<{
 //   skills: Array<{ skill: string; proficiency: number }>;

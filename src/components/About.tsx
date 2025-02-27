@@ -12,12 +12,12 @@ import avatar2 from "../images/avatar-2.png";
 import avatar3 from "../images/avatar-3.png";
 import avatar4 from "../images/avatar-4.png";
 
-import logo1Color from "../images/logo-1-color.png";
-import logo2Color from "../images/logo-2-color.png";
-import logo3Color from "../images/logo-3-color.png";
-import logo4Color from "../images/logo-4-color.png";
-import logo5Color from "../images/logo-5-color.png";
-import logo6Color from "../images/logo-6-color.png";
+// import logo1Color from "../images/logo-1-color.png";
+// import logo2Color from "../images/logo-2-color.png";
+// import logo3Color from "../images/logo-3-color.png";
+// import logo4Color from "../images/logo-4-color.png";
+// import logo5Color from "../images/logo-5-color.png";
+// import logo6Color from "../images/logo-6-color.png";
 
 const About: FC = () => {
   return (
