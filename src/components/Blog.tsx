@@ -17,7 +17,7 @@ const Blog: FC = () => {
       <section className="blog-posts">
         <ul className="blog-posts-list">
           <li className="blog-post-item">
-            <a href="#">
+            <a href="/blog">
               <figure className="blog-banner-box">
                 <img
                   src={blog1}
@@ -48,7 +48,7 @@ const Blog: FC = () => {
           </li>
 
           <li className="blog-post-item">
-            <a href="#">
+            <a href="/blog">
               <figure className="blog-banner-box">
                 <img
                   src={blog2}
@@ -79,7 +79,7 @@ const Blog: FC = () => {
           </li>
 
           <li className="blog-post-item">
-            <a href="#">
+            <a href="/blog">
               <figure className="blog-banner-box">
                 <img
                   src={blog3}
@@ -108,7 +108,7 @@ const Blog: FC = () => {
           </li>
 
           <li className="blog-post-item">
-            <a href="#">
+            <a href="/blog">
               <figure className="blog-banner-box">
                 <img
                   src={blog4}
@@ -139,7 +139,7 @@ const Blog: FC = () => {
           </li>
 
           <li className="blog-post-item">
-            <a href="#">
+            <a href="/blog">
               <figure className="blog-banner-box">
                 <img
                   src={blog5}
@@ -170,7 +170,7 @@ const Blog: FC = () => {
           </li>
 
           <li className="blog-post-item">
-            <a href="#">
+            <a href="/blog">
               <figure className="blog-banner-box">
                 <img
                   src={blog6}
