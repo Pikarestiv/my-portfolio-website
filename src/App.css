@@ -2014,3 +2014,60 @@ textarea.form-input::-webkit-resizer {
     max-width: 700px;
   }
 }
+
+  /* Contact form */
+  /* Contact form alert styles */
+  .form-alert {
+    margin-bottom: 20px;
+    padding: 12px 15px;
+    border-radius: 8px;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  
+  .form-alert.success {
+    background-color: rgba(39, 174, 96, 0.15);
+    border: 1px solid #27ae60;
+    color: #27ae60;
+  }
+  
+  .form-alert.error {
+    background-color: rgba(231, 76, 60, 0.15);
+    border: 1px solid #e74c3c;
+    color: #e74c3c;
+  }
+  
+  .form-alert .alert-icon {
+    font-size: 1.5rem;
+    margin-top: 2px;
+  }
+  
+  .form-alert p {
+    margin: 0;
+    font-size: 0.9rem;
+  }
+  
+  /* Change disabled button style but keep it visible */
+  .form-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+  
+  /* Animation for alert */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .form-alert {
+    display: flex;
+    align-items: center;
+    animation: fadeIn 0.3s ease-out;
+  }
