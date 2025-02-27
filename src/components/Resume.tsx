@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { IonIcon } from "@ionic/react";
-import { bookOutline } from "ionicons/icons";
+import { bookOutline, downloadOutline } from "ionicons/icons";
 
 const TimelineSection: FC<{
   title: string;
@@ -24,21 +24,6 @@ const TimelineSection: FC<{
     </ol>
   </section>
 );
-
-// const SkillItem: FC<{ skill: string; proficiency: number }> = ({
-//   skill,
-//   proficiency,
-// }) => (
-//   <li className="skills-item">
-//     <div className="title-wrapper">
-//       <h5 className="h5">{skill}</h5>
-//       {/* <data value={proficiency}>{proficiency}%</data> */}
-//     </div>
-//     <div className="skill-progress-bg">
-//       <div className={`skill-progress-fill w-[${proficiency}%]`} />
-//     </div>
-//   </li>
-// );
 
 const SkillCategory: FC<{ title: string; skills: string[] }> = ({
   title,
@@ -64,31 +49,6 @@ const SkillCategory: FC<{ title: string; skills: string[] }> = ({
     </ul>
   </div>
 );
-
-// const SkillItem: FC<{ skill: string }> = ({ skill }) => (
-//   <li className="skills-item" style={{ color: "hsl(0, 0%, 84%)" }}>
-//     <div className="title-wrapper">
-//       <h5 className="h5">{skill}</h5>
-//     </div>
-//   </li>
-// );
-
-// const SkillsSection: FC<{
-//   skills: Array<{ skill: string; proficiency: number }>;
-// }> = ({ skills }) => (
-//   <section className="skill">
-//     <h3 className="h3 skills-title">My Skills</h3>
-//     <ul className="skills-list content-card">
-//       {skills.map((skillItem, index) => (
-//         <SkillItem
-//           key={index}
-//           skill={skillItem.skill}
-//           proficiency={skillItem.proficiency}
-//         />
-//       ))}
-//     </ul>
-//   </section>
-// );
 
 const SkillsSection: FC<{
   skills: Array<{ skill: string; proficiency: number }>;
@@ -259,11 +219,50 @@ const Resume: FC = () => {
     { skill: "PHP", proficiency: 70 },
   ];
 
+  // Function to handle resume download
+  const handleDownloadResume = () => {
+    const resumeUrl = "/resume.pdf";
+    const link = document.createElement("a");
+    link.href = resumeUrl;
+    link.download = "Okwudili-Joshua-Odumodu.pdf";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
     <article className="resume active" data-page="resume">
       <header>
         <h2 className="h2 article-title">Resume</h2>
+
+        {/* Download Resume Button */}
+        <div
+          className="download-resume-container"
+          style={{ marginTop: "20px", textAlign: "right" }}
+        >
+          <button
+            className="download-resume-btn"
+            onClick={handleDownloadResume}
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: "8px",
+              padding: "10px 20px",
+              backgroundColor: "hsl(45, 54%, 58%)",
+              color: "hsl(0, 0%, 22%)",
+              borderRadius: "8px",
+              border: "none",
+              cursor: "pointer",
+              fontWeight: "500",
+              transition: "all 0.3s ease",
+            }}
+          >
+            <IonIcon icon={downloadOutline} />
+            <span>Download Resume</span>
+          </button>
+        </div>
       </header>
+
       <TimelineSection title="Education" items={educationItems} />
       <TimelineSection title="Experience" items={experienceItems} />
       <SkillsSection skills={skills} />
