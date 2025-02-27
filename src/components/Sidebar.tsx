@@ -7,6 +7,7 @@ import {
   logoTwitter,
   logoInstagram,
   chevronDown,
+  globeOutline,
 } from "ionicons/icons";
 import { IonIcon } from "@ionic/react";
 import profPic from "../images/profile-pic_200x200.png";
@@ -85,6 +86,7 @@ const Sidebar: FC = () => {
           <li className="social-item">
             <a
               target="_blank"
+              rel="noreferrer noopener"
               href="https://www.fb.me/pikarestiv"
               className="social-link"
             >
@@ -94,6 +96,7 @@ const Sidebar: FC = () => {
           <li className="social-item">
             <a
               target="_blank"
+              rel="noreferrer noopener"
               href="https://www.x.com/pikarestiv"
               className="social-link"
             >
@@ -103,10 +106,21 @@ const Sidebar: FC = () => {
           <li className="social-item">
             <a
               target="_blank"
+              rel="noreferrer noopener"
               href="https://www.instagram.com/joshcodesjs"
               className="social-link"
             >
               <IonIcon icon={logoInstagram} />
+            </a>
+          </li>
+          <li className="social-item">
+            <a
+              target="_blank"
+              rel="noreferrer noopener"
+              href="https://dumostech.com/team/josh.html"
+              className="social-link"
+            >
+              <IonIcon icon={globeOutline} />
             </a>
           </li>
         </ul>
