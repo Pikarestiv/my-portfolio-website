@@ -1,15 +1,23 @@
 import { FC } from "react";
 import { IonIcon } from "@ionic/react";
-import { bookOutline, downloadOutline } from "ionicons/icons";
+import { bookOutline, downloadOutline, briefcaseOutline } from "ionicons/icons";
 
 const TimelineSection: FC<{
   title: string;
-  items: Array<{ title: string; date: string; description: string }>;
-}> = ({ title, items }) => (
+  icon: string;
+  items: Array<{
+    title: string;
+    company?: string;
+    location?: string;
+    date: string;
+    description: string;
+    highlights?: string[];
+  }>;
+}> = ({ title, icon, items }) => (
   <section className="timeline">
     <div className="title-wrapper">
       <div className="icon-box">
-        <IonIcon icon={bookOutline} />
+        <IonIcon icon={icon} />
       </div>
       <h3 className="h3">{title}</h3>
     </div>
@@ -17,8 +25,20 @@ const TimelineSection: FC<{
       {items.map((item, index) => (
         <li key={index} className="timeline-item">
           <h4 className="h4 timeline-item-title">{item.title}</h4>
+          {item.company && (
+            <p className="text-xs text-amber-400 font-medium mb-1">
+              {item.company} {item.location ? `· ${item.location}` : ""}
+            </p>
+          )}
           <span>{item.date}</span>
           <p className="timeline-text">{item.description}</p>
+          {item.highlights && item.highlights.length > 0 && (
+            <ul className="mt-2 space-y-1 list-disc list-inside text-xs text-gray-300">
+              {item.highlights.map((h, i) => (
+                <li key={i}>{h}</li>
+              ))}
+            </ul>
+          )}
         </li>
       ))}
     </ol>
@@ -29,77 +49,118 @@ const SkillCategory: FC<{ title: string; skills: string[] }> = ({
   title,
   skills,
 }) => (
-  <div>
+  <div className="bg-[#1e232d] p-4 rounded-xl border border-gray-800/60 shadow-sm">
     <h4
-      className="text-lg font-medium mb-3"
-      style={{ color: "hsl(45, 54%, 58%)" }}
+      className="text-base font-semibold mb-3 flex items-center gap-2"
+      style={{ color: "hsl(45, 100%, 72%)" }}
     >
+      <span className="w-2 h-2 rounded-full bg-amber-400"></span>
       {title}
     </h4>
-    <ul className="space-y-2">
+    <div className="flex flex-wrap gap-2">
       {skills.map((skill, index) => (
-        <li
+        <span
           key={`${title}-${index}`}
-          className="text-sm"
-          style={{ color: "hsl(0, 0%, 84%)" }}
+          className="text-xs px-2.5 py-1 rounded-md bg-[#161a22] text-gray-200 border border-gray-700/50 hover:border-amber-400/50 transition-colors"
         >
           {skill}
-        </li>
+        </span>
       ))}
-    </ul>
+    </div>
   </div>
 );
 
-const SkillsSection: FC<{
-  skills: Array<{ skill: string; proficiency: number }>;
-}> = ({ skills }) => {
-  // Manually assigned skills to categories
-  const skillsByCategory = {
-    core: ["TypeScript", "JavaScript", "React.js", "Tailwind CSS"],
-    frameworks: [
-      "Next.js",
-      "Material-UI",
-      "Express.js",
-      "Node.js",
-      "React Native",
-    ],
-    backend: ["MongoDB", "MySQL", "PHP", "RESTful APIs"],
-    tools: [
-      "Git",
-      "Agile Methodologies",
-      "UI/UX Implementation",
-      "Responsive Design",
-      "AWS",
-    ],
-  };
-
-  // Category titles
-  const categories = [
-    { id: "core", title: "Core Technologies" },
-    { id: "frameworks", title: "Frameworks & Libraries" },
-    { id: "backend", title: "Backend & Database" },
-    { id: "tools", title: "Development Tools" },
+const SkillsSection: FC = () => {
+  const skillCategories = [
+    {
+      title: "Frontend & Web Architecture",
+      skills: [
+        "React",
+        "Next.js",
+        "TypeScript",
+        "JavaScript (ES6+)",
+        "HTML5 & CSS3",
+        "Tailwind CSS",
+        "Material UI",
+        "Radix UI",
+        "Vite",
+        "TanStack Query",
+        "Zustand",
+        "Responsive & a11y Architecture",
+      ],
+    },
+    {
+      title: "Backend & Microservices",
+      skills: [
+        "Node.js",
+        "NestJS",
+        "Express.js",
+        "Koa",
+        "Laravel / PHP",
+        "RESTful APIs",
+        "WebSockets",
+        "Microservices Architecture",
+        "Role-Based Access Control (RBAC)",
+      ],
+    },
+    {
+      title: "Databases & Offline Storage",
+      skills: [
+        "PostgreSQL",
+        "MySQL",
+        "MongoDB",
+        "SQLite",
+        "Redis Caching",
+        "Offline-First Synchronisation",
+        "Conflict Resolution Engines",
+      ],
+    },
+    {
+      title: "Mobile & Cross-Platform",
+      skills: [
+        "React Native",
+        "Expo",
+        "Tauri Desktop Apps",
+        "NativeWind",
+        "Progressive Web Apps (PWA)",
+        "Push Notifications & Geolocation",
+      ],
+    },
+    {
+      title: "DevOps & Cloud Infrastructure",
+      skills: [
+        "AWS (ECS, S3, CloudFront)",
+        "Docker & Docker Compose",
+        "GitHub Actions CI/CD",
+        "Nginx & PM2",
+        "Vercel",
+        "Sentry Error Monitoring",
+      ],
+    },
+    {
+      title: "Applied AI & Developer Workflows",
+      skills: [
+        "OpenAI API & Anthropic Claude",
+        "Autonomous Agent Workflows",
+        "LLM Model Evaluation & Rubrics",
+        "RAG Document Ingestion",
+        "Prompt Engineering",
+        "Cursor & Modern AI Tooling",
+      ],
+    },
   ];
 
   return (
     <section className="skill">
       <h3 className="h3 skills-title" style={{ color: "hsl(45, 54%, 58%)" }}>
-        My Skills
+        Technical Skills
       </h3>
 
-      <ul className="skills-list content-card">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {categories.map((category) => (
-            <SkillCategory
-              key={category.id}
-              title={category.title}
-              skills={
-                skillsByCategory[category.id as keyof typeof skillsByCategory]
-              }
-            />
-          ))}
-        </div>
-      </ul>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+        {skillCategories.map((cat, idx) => (
+          <SkillCategory key={idx} title={cat.title} skills={cat.skills} />
+        ))}
+      </div>
     </section>
   );
 };
@@ -109,122 +170,110 @@ const Resume: FC = () => {
     {
       title: "Nnamdi Azikiwe University, Awka",
       date: "2008 — 2013",
-      description: "B. Eng. Chemical Engineering",
-    },
-    {
-      title: "West African Senior School Certificate Examination",
-      date: "2007",
-      description: "W.A.S.S.C.E.",
+      description: "B. Eng., Chemical Engineering · Spatial thinking, systems analysis, and mathematical modeling.",
     },
   ];
 
   const experienceItems = [
     {
-      title: "Mobile/Frontend Developer",
-      company: "MS. SOUMYA MANDALAPU",
-      location: "USA",
-      date: "Feb 2025 — Present",
+      title: "AI Training Specialist / Model Evaluator",
+      company: "Handshake AI Fellowship",
+      location: "Remote (Contract)",
+      date: "Jan 2026 — Present",
       description:
-        "Developing Bumpit, a location-based dating app using React Native, TypeScript, and NativeWind. Implementing key features including authentication, geolocation matching, real-time chat, and profile management. Optimizing for performance and ensuring scalability through best coding practices.",
+        "Contract AI trainer and evaluator across Outlier, Handshake AI, and Mercor, working on frontier LLM evaluation and reinforcement training data.",
+      highlights: [
+        "Evaluate LLM training data and multi-turn conversations against structured rubrics for reasoning depth, coding accuracy, and instruction-following quality.",
+        "Produce and review voice and multimodal tasks to improve speech and conversational model performance.",
+        "Record and narrate complex computer workflows used to train computer-use autonomous agents.",
+      ],
     },
     {
-      title: "Lead Frontend Developer",
-      company: "TUBLIAN",
-      location: "Ohio, USA",
-      date: "Nov 2022 — Present",
+      title: "Co-Founder & Frontend Lead",
+      company: "Dumostech",
+      location: "Nigeria (Remote-First)",
+      date: "Mar 2018 — Present",
       description:
-        "Developing Tublian, a platform empowering developers to build software businesses with AI-driven support. Working on AI-powered features including Tublian OS, Job's Copilot, and Open Source project finder. Transforming UI/UX designs into responsive interfaces, implementing front-facing features, and collaborating with cross-functional teams on microservices.",
+        "Co-founded a distributed software consultancy, directing frontend and mobile engineering across 20+ commercial and public-interest platforms for clients in Nigeria, the US, UK, Canada, and Estonia.",
+      highlights: [
+        "Architect frontend systems and design patterns in React, Next.js, and TypeScript, delivering robust platforms including DumosRx, Booksolterra, ANMHRIS, Bumpit, and We Dey Watch.",
+        "Architect full-stack features alongside Node.js, NestJS, and Laravel backends, integrating REST APIs, WebSockets, and database persistence.",
+        "Lead engineering reviews, establish coding standards, and mentor 8+ developers; generated high repeat client engagements across international markets.",
+      ],
+    },
+    {
+      title: "Frontend Consultant (Part-time)",
+      company: "Tublian",
+      location: "Remote",
+      date: "Jan 2025 — Nov 2025",
+      description:
+        "Served as technical frontend advisor after transitioning part-time, mentoring engineers on React, TypeScript, and modern state architecture.",
+      highlights: [
+        "Advised on frontend architecture, state management, and real-time streaming optimizations for AI features.",
+        "Assisted with technical decisions, debugging, and code reviews across distributed teams.",
+      ],
+    },
+    {
+      title: "Lead Frontend Engineer",
+      company: "Tublian",
+      location: "Ohio, USA (Remote)",
+      date: "Nov 2022 — Dec 2024",
+      description:
+        "Led frontend engineering as the AI software creation platform scaled from a few hundred users to 13,000+, growing the React/Next.js codebase to over 500 components.",
+      highlights: [
+        "Shipped user-facing experiences for 5 AI products: Tublian OS (autonomous repo PR agent), Jobs Copilot (ATS resume generator), Open Source (contributor finder), 8020 (skill accelerator), and Tublibot (RAG knowledge chatbot).",
+        "Implemented real-time model streaming, integrated microservices, and collaborated on AWS deployment pipelines.",
+        "Mentored junior engineers and led code review processes across distributed time zones.",
+      ],
     },
     {
       title: "Frontend Developer",
-      company: "MS. SOUMYA MANDALAPU",
-      location: "USA",
-      date: "Oct 2024 — Present",
+      company: "Anambra Techies",
+      location: "Anambra State, Nigeria",
+      date: "Aug 2022 — Oct 2022",
       description:
-        "Developing Unspokenn, a web application for anonymous abuse reporting across the United States. Building reusable components with React.JS, TypeScript, and Tailwind CSS. Implementing accessibility best practices and working in an agile environment with daily stand-ups and code reviews.",
+        "Developed Fundin, a web application designed to streamline startup funding acquisition in Nigeria, securing 2nd place at the SMFest Hackathon.",
+      highlights: [
+        "Collaborated with UI/UX and backend engineers to translate design concepts into responsive interfaces and seamless API integrations.",
+      ],
+    },
+    {
+      title: "Frontend Developer",
+      company: "Sungoldtech",
+      location: "Imo State, Nigeria",
+      date: "Aug 2022 — Sep 2022",
+      description:
+        "Contributed to Girma, a mentorship platform for seed- to Series A-stage startups.",
+      highlights: [
+        "Converted Figma designs into Next.js components using atomic design systems for scalable, reusable UI across the platform.",
+      ],
+    },
+    {
+      title: "Frontend Developer",
+      company: "Dillali",
+      location: "Tallinn, Estonia (Remote)",
+      date: "Mar 2022 — Apr 2022",
+      description:
+        "Contributed to Dillali, an SME financial management and record-keeping tool spanning website, web app, and mobile app.",
+      highlights: [
+        "Implemented user-facing financial tracking workflows and collaborated with backend engineers on reliable data synchronization.",
+      ],
     },
     {
       title: "Web Developer",
-      company: "PASSPORT PARLIAMENT",
-      location: "Lagos, Nigeria",
-      date: "Jul 2023 — Oct 2023",
-      description:
-        "Developed the official website for Passport Parliament, a travel agency providing passport processing and consultation services. Created an intuitive UI with interactive features for service listings, inquiry forms, and customer testimonials. Optimized website performance and SEO to improve search rankings.",
-    },
-    {
-      title: "Frontend Developer",
-      company: "ANAMBRA TECHIES",
-      location: "Anambra, Nigeria",
-      date: "Sep 2022 — Oct 2022",
-      description:
-        "Secured 2nd place in the SMFest Hackathon, developing Fundin, a web application streamlining funding acquisition for Nigerian startups. Translated UI/UX design concepts into responsive web pages and ensured smooth integration with backend services. Participated in code reviews, testing, and debugging.",
-    },
-    {
-      title: "Frontend Developer",
-      company: "SUNGOLDTECH",
-      location: "Imo, Nigeria",
-      date: "Aug 2022 — Sep 2022",
-      description:
-        "Contributed to Girma, a mentorship platform for seed to series A tech startups. Converted Figma designs into Next.js code using atomic design system for consistent UI components. Ensured the platform was mobile-responsive, performance-optimized, and built for scalability.",
-    },
-    {
-      title: "Frontend Developer",
-      company: "DILLALI",
-      location: "Tallinn, Estonia",
-      date: "Mar 2022 — Apr 2022",
-      description:
-        "Contributed to Dillali, a financial management tool for SMBs. Worked across multiple codebases including website, web app, and mobile app. Led implementation of user-facing features and collaborated with design and backend teams to ensure smooth data flow and application functionality.",
-    },
-    {
-      title: "Full-stack Developer",
-      company: "MR. AKIN AKINLOYE",
-      location: "England, UK",
-      date: "Nov 2021 — Jan 2022",
-      description:
-        "Developed Excel2SQL, a custom application for importing Excel data into MySQL databases for efficient querying and reporting. Led agile development with weekly sprints and pair-programming. Managed and maintained MySQL database, ensuring data integrity and optimizing performance.",
-    },
-    {
-      title: "Full-stack Developer",
-      company: "KROSA MODEL SCHOOLS",
-      location: "Anambra, Nigeria",
+      company: "Krosa Model Schools",
+      location: "Awka South, Nigeria",
       date: "Jan 2020 — May 2021",
       description:
-        "Developed a customized results portal with features for student result uploads, secure access via PINs, automated grading, and comprehensive admin dashboard. Led computer studies classes and managed ICT infrastructure including installations, updates, and troubleshooting.",
-    },
-    {
-      title: "Full-stack Developer",
-      company: "DUMOFIELD FARMS",
-      location: "Anambra, Nigeria",
-      date: "Mar 2018 — Dec 2018",
-      description:
-        "Led development of a stock inventory management application to streamline operations and improve tracking efficiency. Designed the system architecture and implemented iterative development with continuous testing. Provided comprehensive documentation and ongoing maintenance.",
+        "Maintained the institutional web presence and engineered a customized student results portal from scratch with automated grading, student-specific PIN security, and administrative records management.",
     },
   ];
 
-  const skills = [
-    { skill: "TypeScript", proficiency: 95 },
-    { skill: "JavaScript", proficiency: 95 },
-    { skill: "React.js", proficiency: 90 },
-    { skill: "Next.js", proficiency: 85 },
-    { skill: "Tailwind CSS", proficiency: 90 },
-    { skill: "Material-UI", proficiency: 85 },
-    { skill: "Node.js", proficiency: 80 },
-    { skill: "Express.js", proficiency: 80 },
-    { skill: "MongoDB", proficiency: 75 },
-    { skill: "MySQL", proficiency: 75 },
-    { skill: "UI/UX Implementation", proficiency: 85 },
-    { skill: "Responsive Design", proficiency: 90 },
-    { skill: "Git", proficiency: 85 },
-    { skill: "Agile Methodologies", proficiency: 80 },
-    { skill: "PHP", proficiency: 70 },
-  ];
-
-  // Function to handle resume download
   const handleDownloadResume = () => {
     const resumeUrl = "/resume.pdf";
     const link = document.createElement("a");
     link.href = resumeUrl;
-    link.download = "Okwudili-Joshua-Odumodu.pdf";
+    link.download = "Okwudili-Joshua-Odumodu-Resume.pdf";
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -232,40 +281,36 @@ const Resume: FC = () => {
 
   return (
     <article className="resume active" data-page="resume">
-      <header>
-        <h2 className="h2 article-title">Resume</h2>
+      <header className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
+        <h2 className="h2 article-title !mb-0">Resume</h2>
 
         {/* Download Resume Button */}
-        <div
-          className="download-resume-container"
-          style={{ marginTop: "20px", textAlign: "right" }}
-        >
+        <div>
           <button
-            className="download-resume-btn"
+            className="download-resume-btn flex items-center gap-2 px-5 py-2.5 rounded-lg font-semibold text-sm transition-all shadow-md hover:brightness-110 active:scale-95"
             onClick={handleDownloadResume}
             style={{
-              display: "inline-flex",
-              alignItems: "center",
-              gap: "8px",
-              padding: "10px 20px",
-              backgroundColor: "hsl(45, 54%, 58%)",
-              color: "hsl(0, 0%, 22%)",
-              borderRadius: "8px",
-              border: "none",
-              cursor: "pointer",
-              fontWeight: "500",
-              transition: "all 0.3s ease",
+              backgroundColor: "hsl(45, 100%, 72%)",
+              color: "hsl(0, 0%, 15%)",
             }}
           >
-            <IonIcon icon={downloadOutline} />
-            <span>Download Resume</span>
+            <IonIcon icon={downloadOutline} className="text-lg" />
+            <span>Download Official Resume (PDF)</span>
           </button>
         </div>
       </header>
 
-      <TimelineSection title="Education" items={educationItems} />
-      <TimelineSection title="Experience" items={experienceItems} />
-      <SkillsSection skills={skills} />
+      <TimelineSection
+        title="Professional Experience"
+        icon={briefcaseOutline}
+        items={experienceItems}
+      />
+      <TimelineSection
+        title="Education"
+        icon={bookOutline}
+        items={educationItems}
+      />
+      <SkillsSection />
     </article>
   );
 };

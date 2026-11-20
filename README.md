@@ -1,46 +1,69 @@
-# Getting Started with Create React App
+# Okwudili Joshua Odumodu — Personal Portfolio Website
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Live URL: **[josh.dumostech.com](https://josh.dumostech.com)**  
+Company Portfolio: **[dumostech.com/portfolio](https://dumostech.com/portfolio)**  
 
-## Available Scripts
+Personal portfolio website of **Okwudili Joshua Odumodu (Josh)** — Senior Frontend Engineer and Co-Founder at **Dumostech**.
 
-In the project directory, you can run:
+Built with **React 18**, **TypeScript**, and **Tailwind CSS**.
 
-### `npm start`
+---
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## 🚀 Features
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- **About Me**: Professional summary highlighting 8+ years of engineering experience, frontend architecture, and core services.
+- **Interactive Testimonials**: Testimonial carousel with real-time modal details from founders, clients, and engineering leaders.
+- **Up-to-Date Resume**: Comprehensive timeline of roles (Handshake AI Fellowship, Dumostech, Tublian, SMFest Hackathon, etc.) and categorized technical skill breakdown.
+- **Downloadable Resume**: Direct one-click PDF download of the latest official resume (`/resume.pdf`).
+- **Interactive Project Showcase**:
+  - Filter by *All*, *Enterprise & SaaS*, *Web Apps*, *Mobile Apps*, *AI & Cloud*, and *Websites*.
+  - Showcases flagship Dumostech platforms: **DumosRx**, **Bumpit**, **Booksolterra**, **Tublian**, **We Dey Watch**, **ANMHRIS**, **Unspokenn**, **Gwa'm**, **Excel2SQL**, and more.
+  - Interactive Project Details modal with architecture highlights, tech badges, and direct live links.
+- **Contact & Map**: Embedded map and functional contact form integrated with Formspree.
 
-### `npm test`
+---
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 🛠️ Tech Stack
 
-### `npm run build`
+- **Frontend**: React 18, TypeScript, Tailwind CSS, Ionicons (`@ionic/react`)
+- **State & UI**: Custom React state hooks, modular component architecture
+- **Design System**: Responsive mobile-first layout with dark mode onyx/gold palette
+- **Deployment**: GitHub Pages / Custom Domain (`josh.dumostech.com`)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 💻 Local Development
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Clone the repository and install dependencies:
 
-### `npm run eject`
+```bash
+git clone git@github.com:Pikarestiv/my-portfolio-website.git
+cd my-portfolio-website
+npm install
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Run Locally
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```bash
+npm start
+```
+Runs the app in development mode at [http://localhost:3000](http://localhost:3000).
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Run Tests
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+```bash
+npm test
+```
 
-## Learn More
+### Production Build
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```bash
+npm run build
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Deployment
+
+```bash
+npm run deploy
+```
+Deploys the production bundle to the `gh-pages` branch.
