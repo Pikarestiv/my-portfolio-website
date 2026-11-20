@@ -29,7 +29,7 @@ import wedeywatchLogin from "../images/projects/wedeywatch-login.png";
 import bumpit from "../images/projects/bumpit.png";
 import unspokenn from "../images/projects/unspokenn.png";
 import clayGlobal from "../images/projects/clay-global.png";
-import dumofield from "../images/projects/dumofield.png";
+import dumofield from "../images/projects/dumofield.jpg";
 import mwexl from "../images/projects/mwexl.png";
 import krosa from "../images/projects/krosa.png";
 import chikaOdumodu from "../images/projects/chikaodufound.png";
@@ -213,7 +213,7 @@ const projectsData: Project[] = [
       "RBAC",
       "Tailwind CSS",
     ],
-    liveUrl: "https://dumostech.com/portfolio",
+    liveUrl: "https://dumostech.com/projects/anmhris",
   },
   {
     id: "unspokenn",
@@ -237,7 +237,7 @@ const projectsData: Project[] = [
       "NestJS",
       "E2E Encryption",
     ],
-    liveUrl: "https://dumostech.com/portfolio",
+    liveUrl: "https://dumostech.com/projects/unspokenn",
   },
   {
     id: "gwam",
@@ -256,7 +256,7 @@ const projectsData: Project[] = [
       "Themeable interface including high-contrast accessibility options.",
     ],
     techStack: ["React", "TypeScript", "PWA", "AI Moderation", "Tailwind CSS"],
-    liveUrl: "https://dumostech.com/portfolio",
+    liveUrl: "https://dumostech.com/projects/gwam",
   },
   {
     id: "cleanwaterndigbo",
@@ -273,7 +273,7 @@ const projectsData: Project[] = [
       "Engineered for fast loading under low-bandwidth mobile connections.",
     ],
     techStack: ["Web Technologies", "Responsive Layout", "SEO", "Accessibility"],
-    liveUrl: "https://dumostech.com/portfolio",
+    liveUrl: "https://dumostech.com/projects/cleanwaterndigbo",
   },
   {
     id: "excel2sql",
@@ -290,7 +290,7 @@ const projectsData: Project[] = [
       "Streamlined data analysis and eliminated manual data entry errors.",
     ],
     techStack: ["React", "TypeScript", "Node.js", "MySQL", "Spreadsheet Parsing"],
-    liveUrl: "https://dumostech.com/portfolio",
+    liveUrl: "https://dumostech.com/projects/excel2sql",
   },
   {
     id: "ginie",
@@ -307,7 +307,7 @@ const projectsData: Project[] = [
       "Maintained and optimized PostgreSQL database queries for data integrity and speed.",
     ],
     techStack: ["React", "TypeScript", "PostgreSQL", "Full-Stack API"],
-    liveUrl: "https://dumostech.com/portfolio",
+    liveUrl: "https://dumostech.com/projects/ginie",
   },
   {
     id: "dumofield",
@@ -318,12 +318,14 @@ const projectsData: Project[] = [
     image: dumofield,
     isFeatured: false,
     description:
-      "An end-to-end inventory management platform for agricultural operations, built for reliable on-site local network performance and tracking.",
+      "An end-to-end stock inventory management application engineered for Dumofield Egg Farm to streamline real-time stock monitoring, accuracy, and operational tracking across the farm.",
     highlights: [
-      "Delivered full lifecycle: requirements gathering, proof of concept, deployment, and on-site staff training.",
+      "Engineered an inventory tracking engine transitioning from Access POC to a resilient MVC architecture.",
+      "Delivered LAN-based multi-user synchronization ensuring zero disruption during rural connectivity drops.",
+      "Hands-on requirement gathering and staff training on the farm floor to ensure adoption.",
     ],
-    techStack: ["Node.js", "MySQL", "JavaScript", "Local Network Design"],
-    liveUrl: "https://dumostech.com/portfolio",
+    techStack: ["Laravel", "PHP", "MySQL", "JavaScript", "LAN Network Design"],
+    liveUrl: "https://dumostech.com/projects/dumofield",
   },
   {
     id: "clayGlobal",
@@ -339,7 +341,7 @@ const projectsData: Project[] = [
       "Mobile-first responsive architecture and local search optimization.",
     ],
     techStack: ["HTML5", "CSS3", "JavaScript", "SEO", "Responsive Design"],
-    liveUrl: "https://dumostech.com/portfolio",
+    liveUrl: "https://dumostech.com/projects/clay-global",
   },
   {
     id: "ikeduStores",
@@ -355,7 +357,7 @@ const projectsData: Project[] = [
       "Custom WooCommerce storefront optimized for mobile shopping experiences.",
     ],
     techStack: ["WooCommerce", "WordPress", "PHP", "Responsive Design"],
-    liveUrl: "https://dumostech.com/portfolio",
+    liveUrl: "https://dumostech.com/projects/ikedu-stores",
   },
   {
     id: "krosa",
@@ -371,7 +373,7 @@ const projectsData: Project[] = [
       "Automated academic grading engine aligned with institutional policies.",
     ],
     techStack: ["PHP", "MySQL", "JavaScript", "Role-Based Security"],
-    liveUrl: "https://dumostech.com/portfolio",
+    liveUrl: "https://dumostech.com/projects/krosa",
   },
   {
     id: "passportParliament",
@@ -387,7 +389,7 @@ const projectsData: Project[] = [
       "Designed intuitive customer inquiry flows with measurable conversion improvements.",
     ],
     techStack: ["HTML5", "CSS3", "JavaScript", "SEO Optimization"],
-    liveUrl: "https://dumostech.com/portfolio",
+    liveUrl: "https://dumostech.com/projects/passport-parliament",
   },
   {
     id: "chikaOdumodu",
@@ -403,7 +405,7 @@ const projectsData: Project[] = [
       "Dynamic project presentation and community outreach management.",
     ],
     techStack: ["HTML5", "CSS3", "JavaScript", "Donation Integration"],
-    liveUrl: "https://dumostech.com/portfolio",
+    liveUrl: "https://dumostech.com/projects/chika-odumodu-foundation",
   },
   {
     id: "mwexl",
@@ -419,7 +421,7 @@ const projectsData: Project[] = [
       "Accessible academic resource sharing and responsive learning views.",
     ],
     techStack: ["Web Technologies", "Responsive Layout"],
-    liveUrl: "https://dumostech.com/portfolio",
+    liveUrl: "https://dumostech.com/projects/mwexl",
   },
 ];
 
