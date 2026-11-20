@@ -38,7 +38,7 @@ import ikeduStores from "../images/projects/iked.png";
 import ginie from "../images/projects/ginie-home.png";
 import passportParliament from "../images/projects/passparl-home-med.png";
 
-export interface Project {
+interface Project {
   id: string;
   title: string;
   categoryFilter: string;
